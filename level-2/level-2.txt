@@ -1,0 +1,67 @@
+🟢 Level 2 — Query Operators
+
+Now we'll test whether you actually understand MongoDB's query operators.
+
+8. Products under ₹1,000
+
+Find products where:
+
+price < 1000
+db.products.find({price:{$lt:1000}})
+---------------------------------------
+9. Products between ₹500 and ₹2,000
+
+Use:
+
+$gte
+$lte
+db.products.find({price:{$gt:500,$lt:2000}})
+-----------------------------------------
+10. Products with stock greater than 20
+
+Use:
+
+$gt
+db.products.find({stock:{$gt:20}})
+---------------------------------
+11. Products with zero stock
+
+Find products where:
+
+stock = 0
+ db.products.find({stock:0})
+12. Electronics products
+
+Find products where:
+
+category = "electronics"
+db.products.find({category:'electronics'})
+--------------------------------------
+13. Multiple conditions
+
+Find products where:
+
+category = "electronics"
+AND
+price < 2000
+ db.products.find({$and:[{category:'electronics'},{price:{$lt:2000}}]})
+----------------------------------
+14. OR condition
+
+Find products where:
+
+category = "electronics"
+OR
+category = "clothing"
+
+Use:
+
+$or
+db.products.find({$or:[{category:'electronics'},{category:'clothing'}]})
+15. Products with good ratings
+
+Find products where:
+
+rating >= 4
+db.products.find({rating:{$gte:4}})
+--------------------------------------------------------

@@ -1,0 +1,91 @@
+1. Insert
+
+Insert 5 products into the collection.
+
+Don't use the same category for every product.
+
+db.products.insertMany({},[
+  {
+    name: "Wireless Mouse",
+    category: "electronics",
+    price: 799,
+    stock: 25,
+    brand: "Logitech",
+    rating: 4.5,
+    isActive: true
+  },
+  {
+    name: "Mechanical Keyboard",
+    category: "electronics",
+    price: 2499,
+    stock: 15,
+    brand: "Redragon",
+    rating: 4.7,
+    isActive: true
+  },
+  {
+    name: "USB-C Hub",
+    category: "electronics",
+    price: 1299,
+    stock: 30,
+    brand: "Anker",
+    rating: 4.4,
+    isActive: true
+  },
+  {
+    name: "Running Shoes",
+    category: "footwear",
+    price: 1899,
+    stock: 12,
+    brand: "Nike",
+    rating: 4.6,
+    isActive: true
+  },
+  {
+    name: "Cotton T-Shirt",
+    category: "clothing",
+    price: 599,
+    stock: 40,
+    brand: "Puma",
+    rating: 4.2,
+    isActive: true
+  }])
+
+2. Read all products
+
+Find all products.
+db.products.find()
+----------------------------------------------------------
+3. Find one product
+ db.products.findOne()
+Find the product whose name is "Wireless Mouse".
+-------------------------------------------------------
+4. Update price
+
+Change the price of "Wireless Mouse" to 699.
+
+ db.products.updateOne(
+|   { name: "Wireless Mouse" },
+|   { $set: { price: 900 } }
+| )
+----------------------------------------------------------
+5. Update stock
+
+Increase its stock by 10.
+db.products.updateMany({},{$inc:{stock:10}})
+-----------------------------------------------------
+6. Delete a product
+
+Delete one product by its _id.
+db.products.deleteOne({ _id: ObjectId('6aaea8da1a6f94cb9660a139')})
+------------------------------------------------------------
+7. Delete inactive products
+
+Delete all products where:
+
+isActive = false
+
+db.products.deleteMany({
+  isActive: false
+})
+ ---------------------------------------------------------------------
