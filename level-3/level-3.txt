@@ -1,0 +1,36 @@
+🟡 Level 3 — Projection
+
+Now don't return the entire document.
+
+16.
+
+Return only:
+
+name
+price
+db.products.find({},{name:1,price:1})
+---------------------------------------
+17.
+
+Return:
+
+name
+price
+stock
+
+
+but hide:
+
+_id
+ db.products.find({},{name:1,price:1,stock:1})
+ ---------------------------------------
+18.
+
+Find electronics products and return only:
+
+name
+price
+rating
+
+db.products.find({},{name:1,price:1,rating:1})
+This is important for API development because you don't always want to send the entire MongoDB document to the client.
