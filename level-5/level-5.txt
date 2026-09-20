@@ -1,0 +1,52 @@
+🟡 Level 5 — Sorting + Pagination
+
+This is where MongoDB starts becoming directly useful for your REST APIs.
+
+25. Cheapest products
+
+Sort products by price:
+
+ascending
+db.products.find().sort({price:1})
+---------------------------------------
+26. Most expensive products
+
+Sort by price:
+
+descending
+ db.products.find().sort({price:-1})
+----------------------------------
+27. Highest-rated products
+
+Sort by:
+
+rating descending
+28. Top 5 products
+
+Return only the first 5 products after sorting by rating.
+db.products.find().sort({price:-1}).limit(5)
+----------------------------------------
+
+29. Pagination
+
+Assume:
+
+page = 2
+limit = 5
+
+Return the correct 5 products.
+
+Think about:
+
+skip
+limit
+db.products.find().skip(5).limit(5)
+30. Search
+
+Find products whose name contains:
+
+phone
+
+This introduces:
+
+$regex
