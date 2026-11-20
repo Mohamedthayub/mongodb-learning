@@ -1,0 +1,130 @@
+2. Database, collection, document, BSON and JSON
+Exercises 1–7
+1. Explain the difference between a database, collection, and document using the e-commerce database.
+2. Display the current database name.
+db.getName()
+------------------------------------------
+3. List all databases available in your MongoDB server.
+show dbs
+------------------------------------------------------
+4. List all collections inside ecommerce_practice.
+db.products.find()
+-----------------------------------------------
+5. Create a new collection called customers.
+ db.createCollection("customers")
+ -------------------------------------------------
+6. Explain the difference between JSON and BSON. Identify at least three BSON data types that JSON does not natively support.
+7. Insert a document containing a string, number, Boolean, array, nested object, and date. Inspect the document in MongoDB.
+
+4. Create database and collection
+Exercises 12–15
+12. Create a database named student_management.
+13. Create collections named students, courses, and teachers.
+db.createCollection("students"),db.createCollection("teachers")
+------------------------------------------------------------------
+14. Insert one document into each collection.
+db.teachers.insertOne({name:"thayub",age:20})
+db.courses.insertOne({"name":"Full Stack Development","duration":6})
+----------------------------------------------------------------------------------------------
+15. Find out when MongoDB actually creates a database and collection. Experiment with creating a database and switching to it without inserting anything.
+
+
+5. insertOne and insertMany
+Exercises 16–22
+16. Insert one new product named Keyboard, priced at ₹1,500.
+ db.products.insertOne({"name":"Keyboard","price":1500})
+ ---------------------------------------
+17. Insert one customer with name, email, city, and age.
+db.customers.insertOne({name:"Mohamed",email:"mohamed@gmail.com",city:"Tirunelveli",age:20})
+--------------------------------------------------------------------------
+18. Insert five students using insertMany().
+student_management> db.students.insertMany([
+|   {
+|     name: "Mohamed",
+|     age: 21,
+|     department: "Computer Science",
+|     grade: "A"
+|   },
+|   {
+|     name: "Ahmed",
+|     age: 22,
+|     department: "Information Technology",
+|     grade: "B"
+|   },
+|   {
+|     name: "Rahul",
+|     age: 20,
+|     department: "Computer Science",
+|     grade: "A"
+|   },
+|   {
+|     name: "Kumar",
+|     age: 23,
+|     department: "Mechanical Engineering",
+|     grade: "C"
+|   },
+|   {
+|     name: "Arun",
+|     age: 21,
+|     department: "Electronics",
+|     grade: "B"
+|   }
+| ])
+------------------------------------------------------------------
+19. Insert three products with different categories and prices.
+ db.products.insertMany([
+|   {
+|     name: "Laptop",
+|     category: "Electronics",
+|     price: 55000,
+|     stock: 10
+|   },
+|   {
+|     name: "Office Chair",
+|     category: "Furniture",
+|     price: 7500,
+|     stock: 20
+|   },
+|   {
+|     name: "Running Shoes",
+|     category: "Fashion",
+|     price: 2500,
+|     stock: 35
+|   }
+| ])
+-----------------------------------------------------------
+20. Insert a product containing an array of tags.
+ db.products.insertOne({
+|   name: "Wireless Mouse",
+|   category: "Electronics",
+|   price: 1200,
+|   stock: 50,
+|   tags: [
+|     "wireless",
+|     "computer-accessory",
+|     "bluetooth",
+|     "office"
+|   ]
+| })
+--------------------------------------------------------------------------------
+21. Insert a customer with a nested address object containing street, city, and pincode.
+db.customers.insertOne({
+|   name: "Mohamed",
+|   email: "mohamed@example.com",
+|   phone: "9876543210",
+|   address: {
+|     street: "Palayamkottai Main Road",
+|     city: "Tirunelveli",
+|     pincode: 627002
+|   }
+| })
+----------------------------------------------------------------------
+22. Insert a product with a createdAt field using JavaScript's new Date().
+db.products.insertOne({
+|   name: "Mechanical Keyboard",
+|   category: "Electronics",
+|   price: 3500,
+|   stock: 15,
+|   createdAt: new Date()
+| })
+------------------------------------------------------------------------------
