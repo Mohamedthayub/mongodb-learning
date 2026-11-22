@@ -7,7 +7,7 @@ db.getName()
 3. List all databases available in your MongoDB server.
 show dbs
 ------------------------------------------------------
-4. List all collections inside ecommerce_practice.
+4. List all collectioncs inside ecommerce_practice.
 db.products.find()
 -----------------------------------------------
 5. Create a new collection called customers.

@@ -1,0 +1,30 @@
+6. find and findOne
+Exercises 23–32
+23. Retrieve all products.
+db.products.find()
+----------------------------
+24. Retrieve only the first product using findOne().
+db.products.findOne()
+------------------------------
+25. Find all products belonging to the Electronics category.
+db.products.find({category:'Electronics'})
+----------------------------------------
+26. Find products with a price greater than ₹1,000.
+db.products.find({price:{$gt:1000}})
+---------------------------------------------
+27. Find products with stock less than or equal to 10.
+db.products.find({stock:{$lte:10}})
+-----------------------------------------------
+28. Find products with a rating greater than or equal to 4.5.
+db.products.find({rating:{$gte:4.5}})
+---------------------------------------------
+29. Find a product by its name using findOne().
+db.products.findOne({name:"Laptop"})
+---------------------------------------------
+30. Find all products where isAvailable is false.
+db.products.find({isAvailable:false})
+------------------------------------------
+31. Find products belonging to either Books or Clothing.
+db.products.find({$or:[{category:"Books"},{category:"Clothing"}]})
+-----------------------------------------------
+32. Retrieve products while displaying only name, price, and category, excluding _id.

@@ -1,0 +1,17 @@
+7. updateOne and updateMany
+Exercises 33–41
+33. Update the price of Laptop to ₹55,000.
+db.products.updateMany({name:'Laptop'},{$set:{price:55000}})
+----------------------------------------------
+34. Change the stock of Mobile to 15.
+db.products.updateMany({name:'Mobile'},{$set:{stock:15}})
+-----------------------------------------
+35. Update the brand of SQL Book to Pearson.
+db.products.updateMany({brand:'SQL Book'},{$set:{brand:'Pearson'}})
+--------------------------------------------------
+36. Increase the price of every product in the Electronics category by 10%.
+37. Reduce the stock of all products by 2.
+38. Change isAvailable to false for all products with stock equal to zero.
+39. Add a new field called discount to every product, with a value of 5.
+40. Update a product's rating and stock in a single operation.
+41. Use $set, $inc, and $unset to modify product documents. Explain the difference between these operators.
