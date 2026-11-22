@@ -1,0 +1,20 @@
+33.
+8. deleteOne and deleteMany
+Exercises 42–47
+42. Delete the product named Keyboard.
+ db.products.deleteMany({name:'Keyboard'})
+ ----------------------------------------------
+43. Delete a customer using their email address.
+db.customers.deleteMany({email:{$exists:true,$ne:null}})
+-------------------------------------------------
+44. Delete all products belonging to the Clothing category.
+ db.products.deleteMany({category:'Clothing'})
+ -----------------------------------------
+45. Delete all products whose stock is zero.
+ db.products.deleteMany({stock:0})
+ ---------------------------------------
+46. Delete all products with a rating below 3.
+db.products.deleteMany({rating:{$lt:3}})
+-------------------------------------------
+47. Delete all documents from a temporary collection without dropping the collection itself.
+db.products.deleteMany({})

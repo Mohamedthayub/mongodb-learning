@@ -10,8 +10,21 @@ db.products.updateMany({name:'Mobile'},{$set:{stock:15}})
 db.products.updateMany({brand:'SQL Book'},{$set:{brand:'Pearson'}})
 --------------------------------------------------
 36. Increase the price of every product in the Electronics category by 10%.
+ db.products.updateMany({category:'Electronics'},{$mul:{price:1.10}})
+------------------------------------------------
 37. Reduce the stock of all products by 2.
+db.products.updateMany({},{$inc:{stock:-2}})
+-----------------------------------------------
 38. Change isAvailable to false for all products with stock equal to zero.
+ db.products.updateMany({stock:0},{$set:{isAvailable:false}})
+----------------------------------------------
 39. Add a new field called discount to every product, with a value of 5.
+db.products.updateMany({},{$set:{discount:5}})
+-------------------------------------------------------
 40. Update a product's rating and stock in a single operation.
+db.products.updateMany({},{$set:{rating:4.8},$inc:{stock:10}})
+----------------------------------------------------------
 41. Use $set, $inc, and $unset to modify product documents. Explain the difference between these operators.
+db.products.updateOne({name:'Wireless Mouse'},{$set:{price:2000}})
+ db.products.updateOne({name:'Wireless Mouse'},{$inc:{stock:10}})
+ db.products.updateOne({name:'Wireless Mouse'},{$unset:{discount:""}})
